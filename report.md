@@ -43,7 +43,24 @@ protected:
     int capacity = 0;
 };
 ```
-以下是這些函式實做出來之圖片
+## 程式實作&說明
+
+### Push  
+
+```cpp
+void Push(const T& e) override {
+        if (this->heapSize == this->capacity) {
+            ChangeSize1D(this->heap, this->capacity, 2 * this->capacity);
+            this->capacity *= 2;
+        }
+        int currentNode = ++this->heapSize;
+        while (currentNode != 1 && this->heap[currentNode / 2] > e) {
+            this->heap[currentNode] = this->heap[currentNode / 2];
+            currentNode /= 2;
+        }
+        this->heap[currentNode] = e;
+    }
+```
 
 
 
