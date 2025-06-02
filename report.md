@@ -61,6 +61,36 @@ void Push(const T& e) override {
         this->heap[currentNode] = e;
     }
 ```
+這段程式碼是 `MinHeap` 類中的 `Push` 方法，用於將元素 `e` 插入最小堆（Min Heap）。
+
+- **功能**：將新元素插入Heap中，保持最小堆性質（父節點小於子節點）。
+- **步驟**：
+  1. 如果堆滿（`heapSize == capacity`），呼叫 `ChangeSize1D` 擴展陣列容量至兩倍。
+  2. 將新元素插入heap最底位置（`++heapSize`），從底部開始上浮。
+  3. 比較當前節點與父節點（`heap[currentNode / 2]`），若父節點大於新元素（`> e`），則交換，繼續上浮。
+  4. 最後將新元素放入正確位置。
+- **時間複雜度**：\(O(\log n)\)，因為最壞情況下需要從底部上浮到根部。
+
+這是實現MinHeap Push 的核心邏輯。
+### Pop
+
+```cpp
+void Pop() override {
+        if (IsEmpty()) throw "Heap is empty. Cannot delete.";
+        this->heap[1] = this->heap[this->heapSize--];
+        int currentNode = 1;
+        int child = 2;
+        T lastE = this->heap[this->heapSize + 1];
+        while (child <= this->heapSize) {
+            if (child < this->heapSize && this->heap[child] > this->heap[child + 1]) child++;
+            if (lastE <= this->heap[child]) break;
+            this->heap[currentNode] = this->heap[child];
+            currentNode = child;
+            child *= 2;
+        }
+        this->heap[currentNode] = lastE;
+    }
+```
 
 
 
