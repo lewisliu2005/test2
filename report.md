@@ -214,6 +214,24 @@ if (lastE >= this->heap[child]) break;
 這導致 MaxHeap 下沉時選擇較大子節點，而 MinHeap 選擇較小子節點。
 
 ## 測試與驗證
+![chart1](https://github.com/lewisliu2005/test2/blob/main/src/image/Maxheap1.png)
+
+![chart1](https://github.com/lewisliu2005/test2/blob/main/src/image/Max2.png)
+
+![chart1](https://github.com/lewisliu2005/test2/blob/main/src/image/Max3.png)
+
+![chart1](https://github.com/lewisliu2005/test2/blob/main/src/image/Max4.png)
+
+![chart1](https://github.com/lewisliu2005/test2/blob/main/src/image/Max5.png)
+
+![chart1](https://github.com/lewisliu2005/test2/blob/main/src/image/Min1.png)
+
+![chart1](https://github.com/lewisliu2005/test2/blob/main/src/image/Min2.png)
+
+![chart1](https://github.com/lewisliu2005/test2/blob/main/src/image/Min3.png)
+
+![chart1](https://github.com/lewisliu2005/test2/blob/main/src/image/Min4.png)
+
 
 
 
