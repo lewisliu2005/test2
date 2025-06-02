@@ -106,7 +106,7 @@ protected:
 
 - 若堆空則丟出異常，否則返回根節點（最小值）。
 
-### Push  
+### Push(MinHeap)
 
 ```cpp
 void Push(const T& e) override {
@@ -133,7 +133,7 @@ void Push(const T& e) override {
 - **時間複雜度**：O(log n)，因為最壞情況下需要從底部上浮到根部。
 
 這是實現MinHeap Push 的核心邏輯。
-### Pop
+### Pop(MinHeap)
 
 ```cpp
 void Pop() override {
@@ -164,10 +164,56 @@ void Pop() override {
 
 這是實現MinHeap Pop的核心邏輯。
 
-以上是MinHeap的實作，以下再來快速介紹MaxHeap的程式實作:
+以上是MinHeap的實作，以下再來快速介紹MaxHeap的程式實作(建構子、解構子、IsEmpty、Top函式和MinHeap相同故不再次解釋):
+### Push(MaxHeap)
+```cpp
+void Push(const T& e) override {
+        if (this->heapSize == this->capacity) {
+            ChangeSize1D(this->heap, this->capacity, 2 * this->capacity);
+            this->capacity *= 2;
+        }
+        int currentNode = ++this->heapSize;
+        while (currentNode != 1 && this->heap[currentNode / 2] < e) {
+            this->heap[currentNode] = this->heap[currentNode / 2];
+            currentNode /= 2;
+        }
+        this->heap[currentNode] = e;
+    }
+```
+這段程式碼是 MaxHeap 的 Push 方法，與 MinHeap 的 Push 方法的主要差異在於
+    
+```cpp
+while (currentNode != 1 && this->heap[currentNode / 2] < e)
+```
+中的比較運算符從 <（MaxHeap）改為 >（MinHeap）
+這決定了堆的排序方向。這導致 MaxHeap 將較大元素上浮，而 MinHeap 將較小元素上浮。
+### Pop(MaxHeap)
+```cpp
+void Pop() override {
+        if (IsEmpty()) throw "Heap is empty. Cannot delete.";
+        this->heap[1] = this->heap[this->heapSize--];
+        int currentNode = 1;
+        int child = 2;
+        T lastE = this->heap[this->heapSize + 1];
+        while (child <= this->heapSize) {
+            if (child < this->heapSize && this->heap[child] < this->heap[child + 1]) child++;
+            if (lastE >= this->heap[child]) break;
+            this->heap[currentNode] = this->heap[child];
+            currentNode = child;
+            child *= 2;
+        }
+        this->heap[currentNode] = lastE;
+    }
+```
+這段程式碼是 MaxHeap 的 Pop 方法，與 MinHeap 的 Pop 方法的主要差異在於：
+```cpp
+if (child < this->heapSize && this->heap[child] < this->heap[child + 1]) child++;
+if (lastE >= this->heap[child]) break;
+```
+中的比較運算符從 >（MaxHeap，選較大子節點）改為 <（MinHeap，選較小子節點），以及從 <= 改為 >=，決定了堆的排序方向。
+這導致 MaxHeap 下沉時選擇較大子節點，而 MinHeap 選擇較小子節點。
 
-
-
+## 測試與驗證
 
 
 
