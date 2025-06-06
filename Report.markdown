@@ -135,7 +135,7 @@ $$
 ### 圖形呈現
 
 ![chart1](https://github.com/lewisliu2005/test2/blob/main/src/image/%E6%8A%98%E7%B7%9A%E5%9C%96.png)
-
+![chart1](https://github.com/lewisliu2005/test2/blob/main/src/image/%E7%A8%8B%E5%BC%8F%E7%B5%90%E6%9E%9C.png)
 ---
 
 ## 分析與觀察
