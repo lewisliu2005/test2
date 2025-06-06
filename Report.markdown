@@ -134,7 +134,7 @@ $$
 
 ### 圖形呈現
 
-
+![chart1](https://github.com/lewisliu2005/test2/blob/main/src/image/Maxheap1.png)
 
 ---
 
