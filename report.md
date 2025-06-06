@@ -241,19 +241,21 @@ if (lastE >= this->heap[child]) break;
 
 ![chart1](https://github.com/lewisliu2005/test2/blob/main/src/image/Min1.png)
 
-第一次Pop，Pop完後會再輸出一次現在樹的樣子
+一樣先決定要輸入多少數字(變數num)，並設定堆的初始陣列大小。
+
+接著cmd便會顯示樹(樹的根在最左邊，左樹根->右樹底)
 
 ![chart1](https://github.com/lewisliu2005/test2/blob/main/src/image/Min2.png)
 
-第二、三次Pop
+第一、二次Pop，Pop完後會再輸出一次現在樹的樣子
 
 ![chart1](https://github.com/lewisliu2005/test2/blob/main/src/image/Min3.png)
 
-第一次Pop，Pop完後會再輸出一次現在樹的樣子
+第三、四、五次Pop
 
 ![chart1](https://github.com/lewisliu2005/test2/blob/main/src/image/Min4.png)
 
-第一次Pop，Pop完後會再輸出一次現在樹的樣子
+第六、七、八、九次Pop
 
 
 
